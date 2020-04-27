@@ -2,37 +2,40 @@
 
 let info = document.getElementById("info")
 let board = ""
-let cellSize = 5
-let boardR = 240
-let boardC = 120
+let cellSize = 10
+let boardR = 120
+let boardC = 60
 let density = 3
 
 function random_maze_factory(){
   board = new RandomMaze(boardR, boardC, density, cellSize)
   info.innerHTML = "total steps: 0 | path steps: 0"
   clear_board()
-  board.draw()
+  board.drawMatrix()
 }
 
 
 function prims_maze_factory(){
-  board = new PrimsMaze(boardR, boardC)
+  board = new PrimsMaze(boardR, boardC, cellSize)
   clear_board()
   board.update()
-  board.draw()
+  board.drawMatrix()
+  board.update()
 }
 
-
-
-
 function recursive_solver_factory(){
-  p = new RecursiveSolver(board)
+  let p = new RecursiveSolver(board)
   if (p.move(board.start_r, board.start_c) == false){
     //TODO goal path wont be drawn if the recursive solver doesnt make it to the end.
     drawGoalPath(p.getGoalPath())
   } else {
     drawGoalPath(p.getGoalPath())
   }
+}
+
+function dijkstra_solver_factory(){
+  let d = new dijkstraSolver(board)
+  d.step()
 }
 
 function clear_board(){
@@ -45,8 +48,8 @@ function drawGoalPath(gp){
   let blue = 0
   for (let i = 0; i < gp.length; i++){
     step += 1
-    r = gp[i].split(" ")[0]
-    c = gp[i].split(" ")[1]
+    let r = gp[i].split(" ")[0]
+    let c = gp[i].split(" ")[1]
     let div = document.createElement("div")
     div.style.width = cellSize + "px"
     div.style.height = cellSize + "px"
@@ -55,7 +58,7 @@ function drawGoalPath(gp){
     div.style.top = c*cellSize + "px"
     // div.style.border = "1px solid black"
     // div.innerHTML = r + "," +  c
-    red = step*4+60
+    let red = step*4+60
     if (red > 250){
       blue += 2
     }
