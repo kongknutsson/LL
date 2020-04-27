@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+#board {
+  position: absolute;
+  height: 80vh;
+  width: 80vw;
+  left: 10%;
+  top: 10%;
+}
+
+#info {
+  text-align: center;
+  border: 1px solid black;
+  height: 30px;
+  width: 400px;
+  left: 50%;
+  top: 3px;
+  position: absolute;
+  transform: translate(-50%, 0);
+}
+
+#button_container {
+  display: flex;
+  position: absolute;
+  width: 400px;
+  height: 30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 5%;
+  background-color: teal;
+}
+
+.controllers {
+  flex-grow: 1;
+  height: 35px;
+  border: 1px solid black;
+}

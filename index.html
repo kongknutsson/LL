@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Labyrint</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+  <div id="board"></div>
+  <div id="info">total steps: 0 | path steps: 0</div>
+  <div id="button_container">
+    <button class="controllers" onclick="random_maze_factory()">MAZE: random</button>
+    <button class="controllers" onclick="prims_maze_factory()">MAZE: prims algorithm</button>
+    <button class="controllers"> - </button>
+    <button class="controllers" onclick="recursive_solver_factory()">SOLVER: recursive</button>
+    <button class="controllers"> - </button>
+    <button class="controllers"> - </button>
+    <button class="controllers"> - </button>
+    <button class="controllers" onclick="clear_board()">clear board</button>
+  </div>
+
+  <script src="randomMaze.js" charset="utf-8"></script>
+  <script src="primsMaze.js" charset="utf-8"></script>
+  <script src="recursiveSolver.js" charset="utf-8"></script>
+  <script src="main.js" charset="utf-8"></script>
+  </body>
+</html>
